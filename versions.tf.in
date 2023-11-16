@@ -1,0 +1,17 @@
+terraform {
+  required_version = "=1.4.6"
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "=4.67.0"
+    }
+  }
+
+  backend "gcs" {
+    bucket                      = "__BUCKET__"
+    prefix                      = "__NAME__"
+    impersonate_service_account = "__SERVICE_ACCOUNT__"
+  }
+}
+
