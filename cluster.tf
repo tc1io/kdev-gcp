@@ -77,7 +77,7 @@ resource "google_container_cluster" "default" {
   lifecycle {
     ignore_changes = [
       node_pool,
-      master_authorized_networks_config,
+      #master_authorized_networks_config,
     ]
     prevent_destroy = "false"
   }

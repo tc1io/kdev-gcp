@@ -23,7 +23,16 @@ m4 \
 	-D__PROJECT__=$PROJECT \
 	-D__REGION__=$REGION \
 	-D__NAME__=$NAME \
+	-D__DNS_ZONE_NAME__=$DNS_ZONE_NAME \
+	-D__DNS_DOMAIN__=$DNS_DOMAIN \
 terraform.tfvars.in > terraform.tfvars
 
 
+m4 \
+	-D__NAME__=$NAME \
+	-D__SERVICE_ACCOUNT__=$SERVICE_ACCOUNT \
+	-D__PROJECT__=$PROJECT \
+	-D__REGION__=$REGION \
+	update_man.sh.in > update_man.sh
+chmod u+x update_man.sh
 

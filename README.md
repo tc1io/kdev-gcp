@@ -47,6 +47,8 @@ export NAME=<name of the setup>
 export SERVICE_ACCOUNT=<provisioning service account>
 export REGION=<GCP target region>
 export BUCKET=<GCS bucket name for remote state storage>
+export DNS_ZONE_NAME=<name of the managed zone in GCP>
+export DNS_DOMAIN=<domain in which to create the console.NAME... and assets.NAME... A records>
 ````
 
 then run
@@ -80,6 +82,10 @@ Setup kubectl authentication plugin
 Get kubeconfig
 
     gcloud container clusters get-credentials $NAME --region $REGION --project $PROJECT
+
+Enable your own source IP address to access the cluster control pane
+
+    ./update_man.sh
 
 Interactive pod
 

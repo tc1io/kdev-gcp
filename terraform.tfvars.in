@@ -1,3 +1,5 @@
-project_id = "__PROJECT__"
-region     = "__REGION__"
-name       = "__NAME__"
+project_id    = "__PROJECT__"
+region        = "__REGION__"
+name          = "__NAME__"
+dns_zone_name = "__DNS_ZONE_NAME__"
+dns_domain    = "__DNS_DOMAIN__"

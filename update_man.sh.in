@@ -1,0 +1,17 @@
+#!/bin/sh
+
+PROJECT=__PROJECT__
+SA=__SERVICE_ACCOUNT__
+NAME=__NAME__
+REGION=__REGION__
+
+echo
+
+NEW_CIDR=$(dig +short -4 @resolver1.opendns.com myip.opendns.com)"/32"
+#NEW_CIDR=$(curl https://ifconfig.me)"/32"
+OLD_CIDR=$(gcloud container clusters describe $NAME --impersonate-service-account=$SA --project=$PROJECT --region=$REGION --format json | jq -r '.masterAuthorizedNetworksConfig.cidrBlocks[] | .cidrBlock' | tr '\n' ',')
+echo "The existing master authorized networks were $OLD_CIDR"
+
+gcloud container clusters update $NAME --master-authorized-networks "$OLD_CIDR$NEW_CIDR" --enable-master-authorized-networks --project=$PROJECT --region=$REGION --impersonate-service-account=$SA
+
+

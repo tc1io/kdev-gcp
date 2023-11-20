@@ -13,4 +13,5 @@ NOTES.txt
 versions.tf
 providers.tf
 terraform.tfvars
+update_man.sh
 
