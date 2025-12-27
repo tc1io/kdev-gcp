@@ -8,6 +8,7 @@
 crash.log
 .DS_Store
 NOTES.txt
+*.env
 
 # generated
 versions.tf

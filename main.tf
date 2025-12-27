@@ -12,7 +12,7 @@ locals {
   max_pods_per_node  = "64"
   initial_node_count = 1
   min_node_count     = 1
-  max_node_count     = 3
+  max_node_count     = 6
   preemptible        = true
   machine_type       = "n1-standard-2"
 }
